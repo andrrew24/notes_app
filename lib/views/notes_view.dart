@@ -11,6 +11,9 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: CustomNotesViewBody(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.add)),
     );
   }
 }
