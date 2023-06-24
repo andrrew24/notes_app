@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 import 'app_bar.dart';
+import 'note_card.dart';
 
 class CustomNotesViewBody extends StatelessWidget {
   const CustomNotesViewBody({
@@ -9,15 +12,23 @@ class CustomNotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return  SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(20),
           child: Column(
-            children: [CustomAppBar()],
+            children: [
+              CustomAppBar(),
+              SizedBox(
+                height: 50,
+              ),
+               NoteCard()
+              ],
           ),
         ),
       ),
     );
   }
 }
+
+
