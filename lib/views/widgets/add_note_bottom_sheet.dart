@@ -24,7 +24,11 @@ class AddNoteBottomSheet extends StatelessWidget {
             textController: title,
             hintText: "Title",
           ),
+          const SizedBox(
+            height: 20,
+          ),
           CustomTextField(
+            
               textController: content, hintText: "Content")
         ],
       ),
