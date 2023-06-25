@@ -6,14 +6,17 @@ import 'package:notes_app/constants/constant.dart';
 import '../../methods/buildBorder.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField({
-    super.key,
-    required this.textController,
-    required this.hintText,
-  });
+  CustomTextField(
+      {super.key,
+      required this.textController,
+      required this.hintText,
+      this.padding = const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
+      this.maxlines = 1});
 
   final TextEditingController textController;
-  String hintText;
+  final String hintText;
+  final int maxlines;
+  final EdgeInsets padding;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,9 @@ class CustomTextField extends StatelessWidget {
       autofocus: true,
       textAlign: TextAlign.start,
       controller: textController,
+      maxLines: maxlines,
       decoration: InputDecoration(
+        contentPadding: padding,
         hintText: hintText,
         hintStyle: const TextStyle(
           color: kprimaryColor,
