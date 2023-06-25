@@ -1,46 +1,34 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, must_be_immutable
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notes_app/views/widgets/add_note_bottom_sheet.dart';
 
-import 'package:notes_app/views/widgets/custom_textfield.dart';
 import 'package:notes_app/views/widgets/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {
-  NotesView({super.key});
-
   final TextEditingController title = TextEditingController();
   final TextEditingController content = TextEditingController();
-
+  TimeOfDay timeOfDay = TimeOfDay(hour: 0, minute: 0);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomNotesViewBody(),
+    return  Scaffold(
+      body:const CustomNotesViewBody(),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20))),
                 context: context,
                 builder: (BuildContext context) {
-                  return Padding(
-                    padding:
-                        const EdgeInsets.only(top: 50, right: 15, left: 15),
-                    child: Column(
-                      children: [
-                        CustomTextField(
-                          textController: title,
-                          hintText: "Title",
-                        ),
-                        CustomTextField(
-                            textController: content, hintText: "Content")
-                      ],
-                    ),
-                  );
+                  return AddNoteBottomSheet(title: title, content: content);
                 });
           },
           child: Icon(Icons.add)),
     );
   }
 }
+
+
