@@ -13,12 +13,15 @@ class CustomNotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return  SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical:5,horizontal: 15),
+        padding:  EdgeInsets.symmetric(vertical:5,horizontal: 15),
         child: Column(
           children: [
-            CustomAppBar(),
+            CustomAppBar(
+              appBarTitle: "NOTES",
+              icon: Icons.search,
+            ),
             SizedBox(
               height: 15,
             ),

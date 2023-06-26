@@ -33,12 +33,15 @@ class AddNoteBottomSheet extends StatelessWidget {
             textController: content,
             hintText: "Content",
             maxlines: 5,
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
-          CustomButton()
+          const CustomButton(),
+          const SizedBox(
+            height: 1,
+          ),
         ],
       ),
     );
