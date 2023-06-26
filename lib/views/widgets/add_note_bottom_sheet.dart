@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'custom_button.dart';
 import 'custom_textfield.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
@@ -17,6 +19,7 @@ class AddNoteBottomSheet extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 50, right: 15, left: 15),
       child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           CustomTextField(
             textController: title,
@@ -29,10 +32,16 @@ class AddNoteBottomSheet extends StatelessWidget {
           CustomTextField(
             textController: content,
             hintText: "Content",
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 60),
-          )
+            maxlines: 5,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          CustomButton()
         ],
       ),
     );
   }
 }
+
