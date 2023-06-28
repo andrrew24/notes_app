@@ -13,7 +13,7 @@ class CustomNotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return  const SafeArea(
       child: Padding(
         padding:  EdgeInsets.symmetric(vertical:5,horizontal: 15),
         child: Column(

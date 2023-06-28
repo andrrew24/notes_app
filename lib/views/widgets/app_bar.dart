@@ -1,17 +1,17 @@
-// ignore_for_file: must_be_immutable
+
 
 import 'package:flutter/material.dart';
 
 
 class CustomAppBar extends StatelessWidget {
-  CustomAppBar({
+ const CustomAppBar({
     super.key,
     required this.appBarTitle,
     required this.icon
   });
 
-  String appBarTitle;
-  IconData icon;
+ final String appBarTitle;
+ final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class CustomAppBar extends StatelessWidget {
       children: [
          Text(
           appBarTitle,
-          style: TextStyle(fontFamily: "poppins",fontSize: 30),
+          style: const TextStyle(fontFamily: "poppins",fontSize: 30),
         ),
         Container(
           height: 50,

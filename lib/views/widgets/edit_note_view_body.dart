@@ -1,4 +1,3 @@
-// ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:notes_app/views/widgets/custom_textfield.dart';
@@ -10,8 +9,8 @@ class EditNoteViewBody extends StatelessWidget {
     super.key,
   });
 
-  TextEditingController titleController = TextEditingController();
-  TextEditingController contentController = TextEditingController();
+ final TextEditingController titleController = TextEditingController();
+ final TextEditingController contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

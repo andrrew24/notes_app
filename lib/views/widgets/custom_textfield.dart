@@ -1,12 +1,12 @@
-// ignore_for_file: must_be_immutable
+
 
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants/constant.dart';
 
-import '../../methods/buildBorder.dart';
+import '../../methods/build_border.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField(
+ const CustomTextField(
       {super.key,
       required this.textController,
       required this.hintText,

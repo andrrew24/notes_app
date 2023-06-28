@@ -1,13 +1,13 @@
-// ignore_for_file: must_be_immutable
+
 
 import 'package:flutter/material.dart';
 
 class CustomTextW extends StatelessWidget {
   
-   String text;
-    TextStyle style;
+  final String text;
+  final TextStyle style;
 
-  CustomTextW({super.key, required this.text,required this.style});
+ const CustomTextW({super.key, required this.text,required this.style});
 
   
 
