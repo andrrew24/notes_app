@@ -16,7 +16,7 @@ class AddNoteBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AddNoteForm(title: title, content: content);
+    return const AddNoteForm();
   }
 }
 
