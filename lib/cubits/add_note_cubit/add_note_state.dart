@@ -12,7 +12,5 @@ class AddNoteSuccess extends AddNoteState {}
 class AddNoteFailed extends AddNoteState {
   final String error;
 
-  AddNoteFailed({
-    required this.error
-  });
+  AddNoteFailed({required this.error});
 }
