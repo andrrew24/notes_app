@@ -6,7 +6,7 @@ import 'package:notes_app/views/widgets/custom_textfield.dart';
 import 'app_bar.dart';
 
 class EditNoteViewBody extends StatelessWidget {
-   EditNoteViewBody({
+  EditNoteViewBody({
     super.key,
   });
 
@@ -26,15 +26,21 @@ class EditNoteViewBody extends StatelessWidget {
                 icon: Icons.done,
               ),
               const SizedBox(
-                height: 15,
+                height: 25,
               ),
               CustomTextField(
-                  textController: titleController, hintText: "Title"),
+                textController: titleController,
+                hintText: "Title",
+                maxlines: 1,
+              ),
               const SizedBox(
                 height: 15,
               ),
               CustomTextField(
-                  textController: contentController, hintText: "Content"),
+                textController: contentController,
+                hintText: "Content",
+                maxlines: 5,
+              ),
             ],
           ),
         ),

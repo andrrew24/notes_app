@@ -9,14 +9,13 @@ import 'package:notes_app/views/widgets/notes_view_body.dart';
 class NotesView extends StatelessWidget {
   final TextEditingController title = TextEditingController();
   final TextEditingController content = TextEditingController();
-  TimeOfDay timeOfDay = TimeOfDay(hour: 0, minute: 0);
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       body:const CustomNotesViewBody(),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            showBottomSheet(
+            showModalBottomSheet(
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),

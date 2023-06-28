@@ -47,4 +47,3 @@ class AddNoteBottomSheet extends StatelessWidget {
     );
   }
 }
-
