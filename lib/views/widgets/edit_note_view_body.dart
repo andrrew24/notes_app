@@ -14,29 +14,27 @@ class EditNoteViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+          padding:  EdgeInsets.symmetric(vertical: 5, horizontal: 15),
           child: Column(
             children: [
               CustomAppBar(
                 appBarTitle: "Edit",
                 icon: Icons.done,
               ),
-              const SizedBox(
+               SizedBox(
                 height: 25,
               ),
               CustomTextField(
-                textController: titleController,
                 hintText: "Title",
                 maxlines: 1,
               ),
-              const SizedBox(
+               SizedBox(
                 height: 15,
               ),
               CustomTextField(
-                textController: contentController,
                 hintText: "Content",
                 maxlines: 5,
               ),
