@@ -6,7 +6,7 @@ import '../../constants/constant.dart';
 import '../../models/note.dart';
 
 part 'add_note_state.dart';
-
+ 
 class AddNoteCubit extends Cubit<AddNoteState> {
   AddNoteCubit() : super(AddNoteInitial());
 
