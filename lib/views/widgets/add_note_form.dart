@@ -26,50 +26,58 @@ class _AddNoteFormState extends State<AddNoteForm> {
     return Form(
       key: formKey,
       autovalidateMode: autoValidateMode,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 30, right: 15, left: 15),
-        child: Column(
-          children: [
-            CustomTextField(
-              onSaved: (value) {
-                title = value;
-              },
-              hintText: "Title",
-              maxlines: 1,
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            CustomTextField(
-              onSaved: (value) {
-                content = value;
-              },
-              hintText: "Content",
-              maxlines: 5,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            CustomButton(onPressed: () {
-                 if (formKey.currentState!.validate()) {
-                   formKey.currentState!.save();
-                   Note note = Note(
-                       title: title!,
-                       subTitle: content!,
-                       time: DateTime.now().toString(),
-                       color: Colors.blueGrey.value);
-                   BlocProvider.of<AddNoteCubit>(context).addNote(note);
-                 } else {
-                   autoValidateMode = AutovalidateMode.always;
-                   setState(() {});
-                 }
-            }),
-            const SizedBox(
-              height: 1,
-            ),
-          ],
+      child: SizedBox(
+        height: 385,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20, right: 15, left: 15,bottom:10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  CustomTextField(
+                    onSaved: (value) {
+                      title = value;
+                    },
+                    hintText: "Title",
+                    maxlines: 1,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextField(
+                    onSaved: (value) {
+                      content = value;
+                    },
+                    hintText: "Content",
+                    maxlines: 5,
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  
+                ],
+              ),
+              CustomButton(onPressed: () {
+                   if (formKey.currentState!.validate()) {
+                     formKey.currentState!.save();
+                     Note note = Note(
+                         title: title!,
+                         subTitle: content!,
+                         time: DateTime.now().toString(),
+                         color: Colors.blueGrey.value);
+                     BlocProvider.of<AddNoteCubit>(context).addNote(note);
+                   } else {
+                     autoValidateMode = AutovalidateMode.always;
+                     setState(() {});
+                   }
+              }
+              ),
+            ],
+          ),
         ),
+
       ),
     );
   }
