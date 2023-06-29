@@ -30,7 +30,7 @@ class CustomTextField extends StatelessWidget {
       },
       onSaved: onSaved ,
       cursorColor: kprimaryColor,
-      autofocus: true,
+      autofocus: false,
       textAlign: TextAlign.start,
       maxLines: maxlines,
       decoration: InputDecoration(

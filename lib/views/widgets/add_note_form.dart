@@ -27,7 +27,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
       key: formKey,
       autovalidateMode: autoValidateMode,
       child: Padding(
-        padding: const EdgeInsets.only(top: 50, right: 15, left: 15),
+        padding: const EdgeInsets.only(top: 30, right: 15, left: 15),
         child: Column(
           children: [
             CustomTextField(
@@ -46,27 +46,25 @@ class _AddNoteFormState extends State<AddNoteForm> {
               },
               hintText: "Content",
               maxlines: 5,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             ),
             const SizedBox(
               height: 50,
             ),
-            CustomButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  formKey.currentState!.save();
-                  Note note = Note(
-                      title: title!,
-                      subTitle: content!,
-                      time: DateTime.now().toString(),
-                      color: Colors.blueGrey.value);
-                  BlocProvider.of<AddNoteCubit>(context).addNote(note);
-                } else {
-                  autoValidateMode = AutovalidateMode.always;
-                  setState(() {});
-                }
-              },
-            ),
+            CustomButton(onPressed: () {
+                 if (formKey.currentState!.validate()) {
+                   formKey.currentState!.save();
+                   Note note = Note(
+                       title: title!,
+                       subTitle: content!,
+                       time: DateTime.now().toString(),
+                       color: Colors.blueGrey.value);
+                   BlocProvider.of<AddNoteCubit>(context).addNote(note);
+                 } else {
+                   autoValidateMode = AutovalidateMode.always;
+                   setState(() {});
+                 }
+            }),
             const SizedBox(
               height: 1,
             ),
@@ -76,3 +74,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
+// CustomButton(
+//               ,
+//             ),
