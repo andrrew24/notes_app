@@ -20,7 +20,7 @@ class CustomAppBar extends StatelessWidget {
       children: [
          Text(
           appBarTitle,
-          style: const TextStyle(fontFamily: "poppins",fontSize: 30),
+          style: const TextStyle(fontSize: 30),
         ),
         Container(
           height: 50,
