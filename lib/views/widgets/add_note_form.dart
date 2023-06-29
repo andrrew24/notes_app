@@ -23,13 +23,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
   String? title, content;
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      autovalidateMode: autoValidateMode,
-      child: SizedBox(
-        height: 385,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20, right: 15, left: 15,bottom:10),
+    return Padding(
+      padding: const EdgeInsets.only(bottom:10),
+      child: Form(
+        key: formKey,
+        autovalidateMode: autoValidateMode,
+        child: SizedBox(
+          height: 350,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -53,10 +53,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     maxlines: 5,
                     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  
                 ],
               ),
               CustomButton(onPressed: () {
@@ -76,8 +72,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
               ),
             ],
           ),
+    
         ),
-
       ),
     );
   }
