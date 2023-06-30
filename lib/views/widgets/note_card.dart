@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 
 import '../../models/note.dart';
 import '../edit_note_view.dart';
@@ -7,7 +9,8 @@ import 'custom_text.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({
-    super.key, required this.note,
+    super.key,
+    required this.note,
   });
 
   final Note note;
@@ -23,7 +26,7 @@ class NoteCard extends StatelessWidget {
         ));
       },
       child: Container(
-        decoration:  BoxDecoration(
+        decoration: BoxDecoration(
             color: Color(note.color),
             borderRadius: const BorderRadius.all(Radius.circular(20))),
         child: Padding(
@@ -44,7 +47,10 @@ class NoteCard extends StatelessWidget {
                   ),
                 ),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    note.delete();
+                    BlocProvider.of<NotesCubit>(context).getNotes();
+                  },
                   icon: const Icon(Icons.delete),
                   color: Colors.black,
                   iconSize: 30,
