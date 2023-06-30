@@ -22,11 +22,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   String? title, content;
- final DateTime time =  DateTime.now();
+  final DateTime time = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom:10),
+      padding: const EdgeInsets.only(bottom: 10),
       child: Form(
         key: formKey,
         autovalidateMode: autoValidateMode,
@@ -53,28 +53,27 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     },
                     hintText: "Content",
                     maxlines: 5,
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 20),
                   ),
                 ],
               ),
               CustomButton(onPressed: () {
-                   if (formKey.currentState!.validate()) {
-                     formKey.currentState!.save();
-                     Note note = Note(
-                         title: title!,
-                         subTitle: content!,
-                         time: DateFormat('MM-dd-yyyy HH:mm').format(time) ,
-                         color: Colors.blueGrey.value);
-                     BlocProvider.of<AddNoteCubit>(context).addNote(note);
-                   } else {
-                     autoValidateMode = AutovalidateMode.always;
-                     setState(() {});
-                   }
-              }
-              ),
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                  Note note = Note(
+                      title: title!,
+                      subTitle: content!,
+                      time: DateFormat('MM-dd-yyyy HH:mm').format(time),
+                      color: Colors.blueGrey.value);
+                  BlocProvider.of<AddNoteCubit>(context).addNote(note);
+                } else {
+                  autoValidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              }),
             ],
           ),
-    
         ),
       ),
     );

@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
       required this.hintText,
       this.padding = const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
       this.maxlines = 1,
+      this.onChanged,
       this.onSaved
       });
 
@@ -16,6 +17,7 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final int maxlines;
   final EdgeInsets padding;
+  final void Function(String?)? onChanged;
   final void Function(String?)? onSaved;
 
   @override
@@ -28,7 +30,8 @@ class CustomTextField extends StatelessWidget {
           return null;
         }
       },
-      onSaved: onSaved ,
+      onSaved: onSaved,
+      onChanged: onChanged,
       cursorColor: kprimaryColor,
       autofocus: false,
       textAlign: TextAlign.start,
