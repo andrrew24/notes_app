@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note.dart';
 
@@ -21,6 +22,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   String? title, content;
+ final DateTime time =  DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -61,7 +63,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                      Note note = Note(
                          title: title!,
                          subTitle: content!,
-                         time: DateTime.now().toString(),
+                         time: DateFormat('MM-dd-yyyy HH:mm').format(time) ,
                          color: Colors.blueGrey.value);
                      BlocProvider.of<AddNoteCubit>(context).addNote(note);
                    } else {
