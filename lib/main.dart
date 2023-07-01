@@ -4,8 +4,8 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/constants/constant.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note.dart';
-import 'package:notes_app/simple_bloc_observer.dart';
-import 'package:notes_app/views/notes_view.dart';
+import 'package:notes_app/cubits/simple_bloc_observer.dart';
+import 'package:notes_app/views/widgets/note_view/notes_view.dart';
 
 void main() async {
   Bloc.observer = SimpleBlocObserver();

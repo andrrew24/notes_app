@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants/constant.dart';
 
-import '../../methods/build_border.dart';
+import '../../../methods/build_border.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(

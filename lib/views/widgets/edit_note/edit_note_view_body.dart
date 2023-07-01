@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
-import 'package:notes_app/views/widgets/custom_textfield.dart';
+import 'package:notes_app/views/widgets/custom_widgets/custom_textfield.dart';
 
-import '../../models/note.dart';
-import 'app_bar.dart';
+import '../../../models/note.dart';
+import '../custom_widgets/custom_app_bar.dart';
 
 class EditNoteViewBody extends StatefulWidget {
   EditNoteViewBody({
