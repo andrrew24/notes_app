@@ -4,9 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note.dart';
-import 'package:notes_app/views/widgets/custom_widgets/custom_text.dart';
+
 
 import '../custom_widgets/custom_button.dart';
+import '../custom_widgets/custom_color_picker/custom_color_picker.dart';
 import '../custom_widgets/custom_textfield.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -22,6 +23,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
+
+
   String? title, content;
   final DateTime time = DateTime.now();
   @override
@@ -32,7 +35,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
         key: formKey,
         autovalidateMode: autoValidateMode,
         child: SizedBox(
-          height: 370,
+          height: 430,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -91,20 +94,3 @@ class _AddNoteFormState extends State<AddNoteForm> {
 // CustomButton(
 //               ,
 //             ),
-
-class CustomColorPicker extends StatelessWidget {
-  const CustomColorPicker({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        CustomTextW(text: "Color  ", style: TextStyle(fontSize: 20)),
-        CircleAvatar(
-          radius: 17,
-          backgroundColor: Colors.blue,
-        ),
-      ],
-    );
-  }
-}
