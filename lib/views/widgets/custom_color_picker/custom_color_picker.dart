@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 
-import '../custom_text.dart';
+import '../custom_widgets/custom_text.dart';
 
 class CustomColorPicker extends StatefulWidget {
   const CustomColorPicker({super.key});
@@ -14,7 +16,10 @@ class _CustomColorPickerState extends State<CustomColorPicker> {
   Color pickedColor = Colors.blue;
 
   void changeColor(Color color) {
-    setState(() => pickedColor = color);
+    setState(() {
+      pickedColor = color;
+    });
+    print("color from change color : $color");
   }
 
   @override
@@ -37,6 +42,12 @@ class _CustomColorPickerState extends State<CustomColorPicker> {
                   actions: [
                     TextButton(
                         onPressed: () {
+                          setState(() {
+                            BlocProvider.of<AddNoteCubit>(context).noteColor =
+                                pickedColor.value;
+                          });
+                          print("color from onPressed : $pickedColor");
+                          print("Notecolor from onPressed : ${BlocProvider.of<AddNoteCubit>(context).noteColor}");
                           Navigator.pop(context);
                         },
                         child: const CustomTextW(

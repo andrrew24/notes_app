@@ -12,7 +12,6 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const CustomNotesViewBody(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
