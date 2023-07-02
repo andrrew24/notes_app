@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 
+import '../../../methods/colors_dialog.dart';
 import '../custom_widgets/custom_text.dart';
 
 class CustomColorPicker extends StatefulWidget {
@@ -19,7 +19,6 @@ class _CustomColorPickerState extends State<CustomColorPicker> {
     setState(() {
       pickedColor = color;
     });
-    print("color from change color : ${pickedColor.value}");
   }
 
   @override
@@ -30,45 +29,13 @@ class _CustomColorPickerState extends State<CustomColorPicker> {
         const CustomTextW(text: "Color  ", style: TextStyle(fontSize: 20)),
         GestureDetector(
           onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: const CustomTextW(
-                      text: "Pick a Color", style: TextStyle(fontSize: 15)),
-                  content: SingleChildScrollView(
-                    child: BlockPicker(
-                        pickerColor: pickedColor, onColorChanged: changeColor),
-                  ),
-                  actions: [
-                    TextButton(
-                        onPressed: () {
-                           print(
-                  "Notecolor from onPressed : ${pickedColor.value}");
-                           print(
-                  "Notecolor from onPressed : ${BlocProvider.of<AddNoteCubit>(context).noteColor}");
-                          Navigator.pop(context);
-                        },
-                        child: const CustomTextW(
-                          text: "Done",
-                          style: TextStyle(fontSize: 16),
-                        )),
-                  ],
-                );
-              },
-            );
+            colorsDialog(context, changeColor, pickedColor);
           },
           child: CircleAvatar(
-            radius: 25,
+            radius: 20,
             backgroundColor: pickedColor,
           ),
         ),
-        TextButton(
-            onPressed: () {
-              print(
-                  "Notecolor from onPressed : ${BlocProvider.of<AddNoteCubit>(context).noteColor}");
-            },
-            child: Text("show note color"))
       ],
     );
   }
