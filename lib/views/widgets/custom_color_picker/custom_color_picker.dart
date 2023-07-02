@@ -19,11 +19,12 @@ class _CustomColorPickerState extends State<CustomColorPicker> {
     setState(() {
       pickedColor = color;
     });
-    print("color from change color : $color");
+    print("color from change color : ${pickedColor.value}");
   }
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<AddNoteCubit>(context).noteColor = pickedColor.value;
     return Row(
       children: [
         const CustomTextW(text: "Color  ", style: TextStyle(fontSize: 20)),
@@ -42,28 +43,32 @@ class _CustomColorPickerState extends State<CustomColorPicker> {
                   actions: [
                     TextButton(
                         onPressed: () {
-                          setState(() {
-                            BlocProvider.of<AddNoteCubit>(context).noteColor =
-                                pickedColor.value;
-                          });
-                          print("color from onPressed : $pickedColor");
-                          print("Notecolor from onPressed : ${BlocProvider.of<AddNoteCubit>(context).noteColor}");
+                           print(
+                  "Notecolor from onPressed : ${pickedColor.value}");
+                           print(
+                  "Notecolor from onPressed : ${BlocProvider.of<AddNoteCubit>(context).noteColor}");
                           Navigator.pop(context);
                         },
                         child: const CustomTextW(
                           text: "Done",
                           style: TextStyle(fontSize: 16),
-                        ))
+                        )),
                   ],
                 );
               },
             );
           },
           child: CircleAvatar(
-            radius: 17,
+            radius: 25,
             backgroundColor: pickedColor,
           ),
         ),
+        TextButton(
+            onPressed: () {
+              print(
+                  "Notecolor from onPressed : ${BlocProvider.of<AddNoteCubit>(context).noteColor}");
+            },
+            child: Text("show note color"))
       ],
     );
   }
