@@ -26,50 +26,52 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-          child: Column(
-            children: [
-              CustomAppBar(
-                appBarTitle: "Edit",
-                icon: Icons.done,
-                onPressed: () {
-                  widget.note.title = title ?? widget.note.title;
-                  widget.note.subTitle = content ?? widget.note.subTitle;
-                  widget.note.color =
-                      BlocProvider.of<NotesCubit>(context).noteColor ?? widget.note.color ;
-                  widget.note.save();
-                  BlocProvider.of<NotesCubit>(context).getNotes();
-                  Navigator.pop(context);
-                },
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              CustomTextField(
-                onChanged: (value) {
-                  title = value;
-                },
-                hintText: widget.note.title,
-                maxlines: 1,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              CustomTextField(
-                onChanged: (value) {
-                  content = value;
-                },
-                hintText: widget.note.subTitle,
-                maxlines: 5,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              EditCustomColorPicker(
-                note: widget.note,
-              )
-            ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+            child: Column(
+              children: [
+                CustomAppBar(
+                  appBarTitle: "Edit",
+                  icon: Icons.done,
+                  onPressed: () {
+                    widget.note.title = title ?? widget.note.title;
+                    widget.note.subTitle = content ?? widget.note.subTitle;
+                    widget.note.color =
+                        BlocProvider.of<NotesCubit>(context).noteColor ?? widget.note.color ;
+                    widget.note.save();
+                    BlocProvider.of<NotesCubit>(context).getNotes();
+                    Navigator.pop(context);
+                  },
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                CustomTextField(
+                  onChanged: (value) {
+                    title = value;
+                  },
+                  hintText: widget.note.title,
+                  maxlines: 1,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                CustomTextField(
+                  onChanged: (value) {
+                    content = value;
+                  },
+                  hintText: widget.note.subTitle,
+                  maxlines: 5,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                EditCustomColorPicker(
+                  note: widget.note,
+                )
+              ],
+            ),
           ),
         ),
       ),
