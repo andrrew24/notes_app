@@ -19,7 +19,6 @@ class AddNoteCubit extends Cubit<AddNoteState> {
     try {
       var notesBox = Hive.box<Note>(hiveBoxName);
       await notesBox.add(note);
-      print("note color from addNoteCubit ${note.color}");
       emit(AddNoteSuccess());
     } on Exception catch (e) {
       emit(AddNoteFailed(error: e.toString()));

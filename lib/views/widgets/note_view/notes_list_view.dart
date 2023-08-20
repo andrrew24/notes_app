@@ -16,6 +16,7 @@ class NotesListView extends StatelessWidget {
         List notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
         return notes.isEmpty ? const Center(child: CustomTextW(text: "ADD SOME NOTES ✨", style: TextStyle(fontSize: 16)))
         :ListView.builder(
+          physics:const BouncingScrollPhysics(),
           itemCount: notes.length,
           itemBuilder: (context, index) {
             return  Padding(

@@ -7,7 +7,7 @@ import 'package:notes_app/models/note.dart';
 
 import '../custom_widgets/custom_button.dart';
 import '../custom_color_picker/add_custom_color_picker.dart';
-import '../custom_widgets/custom_textfield.dart';
+import '../custom_widgets/custom_textformfield.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({
@@ -38,22 +38,26 @@ class _AddNoteFormState extends State<AddNoteForm> {
             children: [
               Column(
                 children: [
-                  CustomTextField(
+                  CustomTextFormField(
+                    initialValue: "Title",
                     onSaved: (value) {
                       title = value;
                     },
                     hintText: "Title",
                     maxlines: 1,
+                    textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  CustomTextField(
+                  CustomTextFormField(
+                    initialValue: "Content",
                     onSaved: (value) {
                       content = value;
                     },
                     hintText: "Content",
                     maxlines: 5,
+                    textInputAction: TextInputAction.newline,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 20),
                   ),
