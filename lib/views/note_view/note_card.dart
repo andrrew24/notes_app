@@ -5,9 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 
-import '../../../models/note.dart';
+import '../../models/note.dart';
 import '../edit_note/edit_note_view.dart';
-import '../custom_widgets/custom_text.dart';
+import '../widgets/custom_widgets/custom_text.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({

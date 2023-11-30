@@ -19,7 +19,6 @@ class _AddCustomColorPickerState extends State<AddCustomColorPicker> {
     setState(() {
       pickedColor = color;
     });
-    print("color from change color : ${pickedColor.value}");
   }
 
   @override
