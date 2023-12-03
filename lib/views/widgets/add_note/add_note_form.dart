@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -6,8 +5,8 @@ import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note.dart';
 
 import '../custom_widgets/custom_button.dart';
-import '../custom_color_picker/custom_color_picker.dart';
-import '../custom_widgets/custom_textfield.dart';
+import '../custom_color_picker/add_custom_color_picker.dart';
+import '../custom_widgets/custom_textformfield.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({
@@ -38,22 +37,26 @@ class _AddNoteFormState extends State<AddNoteForm> {
             children: [
               Column(
                 children: [
-                  CustomTextField(
+                  CustomTextFormField(
+                    initialValue: "Title",
                     onSaved: (value) {
                       title = value;
                     },
                     hintText: "Title",
                     maxlines: 1,
+                    textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  CustomTextField(
+                  CustomTextFormField(
+                    initialValue: "Content",
                     onSaved: (value) {
                       content = value;
                     },
                     hintText: "Content",
                     maxlines: 5,
+                    textInputAction: TextInputAction.newline,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 20),
                   ),
@@ -62,7 +65,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               const SizedBox(
                 height: 20,
               ),
-             const CustomColorPicker(),
+              const AddCustomColorPicker(),
               const SizedBox(
                 height: 20,
               ),
@@ -73,7 +76,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     title: title!,
                     subTitle: content!,
                     time: DateFormat('MM-dd-yyyy HH:mm').format(time),
-                    color:  Colors.blue.value,
+                    color: Colors.blue.value,
                   );
                   BlocProvider.of<AddNoteCubit>(context).addNote(note);
                 } else {
