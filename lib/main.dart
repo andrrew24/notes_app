@@ -4,7 +4,6 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/constants/constant.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
-import 'package:notes_app/cubits/search_cubit/cubit/search_cubit.dart';
 import 'package:notes_app/models/note.dart';
 import 'package:notes_app/cubits/simple_bloc_observer.dart';
 import 'package:notes_app/views/note_view/notes_view.dart';
@@ -29,9 +28,6 @@ class NotesApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (BuildContext context) => NotesCubit(),
-        ),
-        BlocProvider(
-          create: (BuildContext context) => SearchCubit(),
         ),
       ],
       child: MaterialApp(

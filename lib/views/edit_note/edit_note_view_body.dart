@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/views/note_view/notes_view.dart';
 import 'package:notes_app/views/widgets/custom_widgets/custom_textformfield.dart';
 
 import '../../models/note.dart';
@@ -42,7 +43,11 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
                             widget.note.color;
                     widget.note.save();
                     BlocProvider.of<NotesCubit>(context).getNotes();
-                    Navigator.pop(context);
+                    Navigator.pushReplacement(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const NotesView();
+                      },
+                    ));
                   },
                 ),
                 const SizedBox(

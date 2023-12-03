@@ -26,18 +26,18 @@ class _SearchViewBodyState extends State<SearchViewBody> {
           if (state is SearchSuccess) {
             return Expanded(
               child: ListView.builder(
-                itemCount: state.foundNotes.length,
-                itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical:8.0),
-                  child: NoteCard(note: state.foundNotes[index]),
-                );
-              }),
+                  itemCount: state.foundNotes.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: NoteCard(note: state.foundNotes[index]),
+                    );
+                  }),
             );
           } else if (state is SearchNoResult) {
             return const Text("No Result");
           } else {
-            return const Text("Error");
+            return const Text("Search");
           }
         })
       ],
