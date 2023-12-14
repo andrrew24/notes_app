@@ -6,7 +6,7 @@ import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note.dart';
 import 'package:notes_app/cubits/simple_bloc_observer.dart';
-import 'package:notes_app/views/note_view/notes_view.dart';
+import 'package:notes_app/views/login_view/login_view.dart';
 
 void main() async {
   Bloc.observer = SimpleBlocObserver();
@@ -33,7 +33,7 @@ class NotesApp extends StatelessWidget {
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(brightness: Brightness.dark, fontFamily: "poppins"),
-          home: const NotesView()),
+          home: const LoginView()),
     );
   }
 }

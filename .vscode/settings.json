@@ -27,5 +27,9 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
-  ]
+  ],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.fixAll" :"always"
+  }
 }

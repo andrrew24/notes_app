@@ -8,10 +8,12 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     this.isLoading = false,
+    required this.text,
   });
 
   final void Function() onPressed;
   final bool isLoading;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +30,13 @@ class CustomButton extends StatelessWidget {
             child: Center(
                 child: isLoading
                     ? const SizedBox(
-                      height: 25,
-                      width: 25,
+                        height: 25,
+                        width: 25,
                         child: LoadingIndicator(
                             indicatorType: Indicator.circleStrokeSpin))
-                    : const Text(
-                        "ADD",
-                        style: TextStyle(
+                    : Text(
+                        text,
+                        style: const TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
