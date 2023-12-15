@@ -40,9 +40,9 @@ class LoginViewBody extends StatelessWidget {
                   behavior: SnackBarBehavior.floating,
                   backgroundColor: Colors.transparent,
                   content: AwesomeSnackbarContent(
-                    title: "Oh Snap",
-                    message: "Username or Password are not Correct",
-                    contentType: ContentType.failure,
+                    title: "Welcome",
+                    message: "Password is Correct",
+                    contentType: ContentType.success,
                   ));
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(snackBar);

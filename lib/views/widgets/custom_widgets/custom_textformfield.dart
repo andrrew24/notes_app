@@ -12,7 +12,8 @@ class CustomTextFormField extends StatelessWidget {
       this.maxlines = 1,
       this.onChanged,
       this.onSaved,
-      required this.textInputAction,required this.initialValue});
+      required this.textInputAction,
+      required this.initialValue});
 
   final String hintText;
   final String initialValue;

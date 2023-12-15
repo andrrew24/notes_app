@@ -4,8 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note.dart';
 
-import '../custom_widgets/custom_button.dart';
 import '../custom_color_picker/add_custom_color_picker.dart';
+import '../custom_widgets/custom_button.dart';
 import '../custom_widgets/custom_textformfield.dart';
 
 class AddNoteForm extends StatefulWidget {
